@@ -26,6 +26,20 @@
 
 
 ## Reproduce results
+### Conda environment
+1. Create a conda environment
+```bash
+conda env create --prefix .t4pc python=3.7
+```
+2. Activate the environment
+```bash
+conda activate .t4pc
+```
+3. Install the requirements
+```bash
+pip install -r requirements.txt
+```
+
 
 ### RQ1, RQ2, and RQ3
 1. Download the violations csv files by running:
