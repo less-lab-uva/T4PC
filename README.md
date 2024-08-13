@@ -24,7 +24,24 @@
 | **Average**       | 75,166    | 121,021   | 57,404    | 23,252    | 210,338   | 195,804   |
 
 
-## Code
 
+## Reproduce results
 
-Scripts will be uploaded soon.
+### RQ1, RQ2, and RQ3
+1. Download the violations csv files by running:
+```bash
+python downloader.py --option controlled_experiment_results
+```
+2. Run the following script to plot the results:
+```bash
+python controlled_experiment/plot.py
+```
+Figure 3 in the paper will be generated at `./controlled_experiment/results.png`.
+
+### TCP Controlled Experiment
+1. Download the results.json files by running:
+```bash
+python downloader.py --option case_study_results
+```
+2. To render the full table with the results, execute the cells in the Jupyter notebook `case_study/results_summary.ipynb`.
+
