@@ -1,5 +1,14 @@
 # T4PC
 
+## :star: TCP property conformance improvement for stop signs <span style='color: red;'>NEW!</span>
+This video shows **TCP fine-tuned without property loss** running in one of the evaluation routes in CARLA, and we can see how it **runs a stop sign.**.
+
+![alt text](video_not_stopping.gif)
+
+This video shows **TCP fine-tuned with T4PC** running in the same evaluation route in CARLA, but in this case we can see that TCP safely **stops at the stop sign**.
+
+![alt text](video_stopping.gif)
+
 ## Appendix Tables
 
 ### Splits
@@ -23,6 +32,159 @@
 | Town 10 left out  | 75,546    | 127,588   | 55,513    | 23,771    | 224,367   | 210,240   |
 | **Average**       | 75,166    | 121,021   | 57,404    | 23,252    | 210,338   | 195,804   |
 
+### :star: Towns <span style='color: red;'>NEW!</span>
+
+| Town   | # Images |
+|--------|--------|
+| town01 | 82,452 |
+| town02 | 87,111 |
+| town04 | 65,301 |
+| town05 | 90,747 |
+| town07 | 62,446 |
+| town10 | 85,826 |
+
+### :star: Sec IV number of violations <span style='color: red;'>NEW!</span>
+We present the number of violations for each property and split in the controlled experiment. The number of violations is divided into two categories: $\mathcal{B}$ and $\mathcal{M}$, which represent the number of violations for the base model and the model fine-tuned with T4PC, respectively. These violations appear on the towns left out during training. We added 3 csv files called rq1_violations_table.csv, rq2_violations_table.csv, and rq3_violations_table.csv containing the following tables in the root folder.
+
+#### :star: RQ1 <span style='color: red;'>NEW!</span>
+| Properties                        | Split   | $\mathcal{B}$ | $\mathcal{M}$ |
+|:----------------------------------|:-------:|--------------:|--------------:|
+| $\phi_1$ - StopToAvoidCollision   | 0       | 180 | 54 |
+|    | 1       | 121 | 26 |
+|    | 2       | 37 | 15 |
+|    | 3       | 94 | 52 |
+|    | 4       | 126 | 48 |
+|    | 5       | 34 | 15 |
+|    | total       | 592 | 210 |
+| $\phi_2$ - StopForYellowRed   | 0       | 1056 | 447 |
+|    | 1       | 608 | 88 |
+|    | 2       | 631 | 51 |
+|    | 3       | 652 | 63 |
+|    | 4       | 389 | 285 |
+|    | 5       | 1178 | 146 |
+|    | total       | 4514 | 1080 |
+| $\phi_3$ - NoStopForNoReason   | 0       | 19 | 3 |
+|    | 1       | 92 | 83 |
+|    | 2       | 83 | 6 |
+|    | 3       | 163 | 62 |
+|    | 4       | 404 | 109 |
+|    | 5       | 1215 | 1232 |
+|    | total       | 1976 | 1495 |
+| $\phi_4$ - AccelerateForGreen   | 0       | 61 | 10 |
+|    | 1       | 76 | 35 |
+|    | 2       | 26 | 7 |
+|    | 3       | 235 | 81 |
+|    | 4       | 40 | 4 |
+|    | 5       | 93 | 31 |
+|    | total       | 531 | 168 |
+| $\phi_5$ - NoSteerRightOutRoad   | 0       | 1503 | 0 |
+|    | 1       | 1041 | 0 |
+|    | 2       | 626 | 0 |
+|    | 3       | 2468 | 0 |
+|    | 4       | 232 | 0 |
+|    | 5       | 365 | 0 |
+|    | total       | 6235 | 0 |
+| $\phi_6$ - NoSteerLeftOutRoad   | 0       | 0 | 0 |
+|    | 1       | 0 | 0 |
+|    | 2       | 0 | 0 |
+|    | 3       | 0 | 0 |
+|    | 4       | 0 | 0 |
+|    | 5       | 0 | 0 |
+|    | total       | 0 | 0 |
+
+
+#### :star: RQ2 <span style='color: red;'>NEW!</span>
+| Properties                        | Split   | $\mathcal{B}$ | $\mathcal{M}$ |
+|:----------------------------------|:-------:|--------------:|--------------:|
+| $\phi_1$ - StopToAvoidCollision   | 0       | 200 | 43 |
+|    | 1       | 106 | 16 |
+|    | 2       | 34 | 14 |
+|    | 3       | 92 | 51 |
+|    | 4       | 128 | 60 |
+|    | 5       | 33 | 13 |
+|    | total       | 593 | 197 |
+| $\phi_2$ - StopForYellowRed   | 0       | 1116 | 333 |
+|    | 1       | 586 | 70 |
+|    | 2       | 647 | 60 |
+|    | 3       | 675 | 102 |
+|    | 4       | 402 | 274 |
+|    | 5       | 1156 | 115 |
+|    | total       | 4582 | 954 |
+| $\phi_3$ - NoStopForNoReason   | 0       | 15 | 5 |
+|    | 1       | 94 | 69 |
+|    | 2       | 84 | 3 |
+|    | 3       | 154 | 67 |
+|    | 4       | 398 | 103 |
+|    | 5       | 1280 | 1000 |
+|    | total       | 2025 | 1247 |
+| $\phi_4$ - AccelerateForGreen   | 0       | 50 | 16 |
+|    | 1       | 77 | 20 |
+|    | 2       | 27 | 2 |
+|    | 3       | 227 | 97 |
+|    | 4       | 36 | 10 |
+|    | 5       | 101 | 13 |
+|    | total       | 518 | 158 |
+| $\phi_5$ - NoSteerRightOutRoad   | 0       | 1541 | 0 |
+|    | 1       | 1089 | 0 |
+|    | 2       | 636 | 0 |
+|    | 3       | 2431 | 0 |
+|    | 4       | 242 | 0 |
+|    | 5       | 380 | 0 |
+|    | total       | 6319 | 0 |
+| $\phi_6$ - NoSteerLeftOutRoad   | 0       | 0 | 0 |
+|    | 1       | 0 | 0 |
+|    | 2       | 0 | 0 |
+|    | 3       | 0 | 0 |
+|    | 4       | 0 | 0 |
+|    | 5       | 0 | 0 |
+|    | total       | 0 | 0 |
+
+
+### :star: RQ3 <span style='color: red;'>NEW!</span>
+| Properties                        | Split   | $\mathcal{B}$ | $\mathcal{M}$ |
+|:----------------------------------|:-------:|--------------:|--------------:|
+| $\phi_1$ - StopToAvoidCollision   | 0       | 150 | 29 |
+|    | 1       | 123 | 46 |
+|    | 2       | 37 | 54 |
+|    | 3       | 96 | 36 |
+|    | 4       | 126 | 239 |
+|    | 5       | 28 | 24 |
+|    | total       | 560 | 428 |
+| $\phi_2$ - StopForYellowRed   | 0       | 994 | 196 |
+|    | 1       | 608 | 72 |
+|    | 2       | 631 | 43 |
+|    | 3       | 659 | 83 |
+|    | 4       | 388 | 248 |
+|    | 5       | 757 | 272 |
+|    | total       | 4037 | 914 |
+| $\phi_3$ - NoStopForNoReason   | 0       | 27 | 61 |
+|    | 1       | 92 | 147 |
+|    | 2       | 83 | 77 |
+|    | 3       | 154 | 116 |
+|    | 4       | 404 | 372 |
+|    | 5       | 1576 | 1464 |
+|    | total       | 2336 | 2237 |
+| $\phi_4$ - AccelerateForGreen   | 0       | 59 | 81 |
+|    | 1       | 77 | 59 |
+|    | 2       | 26 | 13 |
+|    | 3       | 227 | 149 |
+|    | 4       | 40 | 14 |
+|    | 5       | 164 | 219 |
+|    | total       | 593 | 535 |
+| $\phi_5$ - NoSteerRightOutRoad   | 0       | 1506 | 0 |
+|    | 1       | 1037 | 0 |
+|    | 2       | 625 | 0 |
+|    | 3       | 2371 | 0 |
+|    | 4       | 234 | 0 |
+|    | 5       | 0 | 0 |
+|    | total       | 5773 | 0 |
+| $\phi_6$ - NoSteerLeftOutRoad   | 0       | 0 | 0 |
+|    | 1       | 0 | 0 |
+|    | 2       | 0 | 0 |
+|    | 3       | 0 | 0 |
+|    | 4       | 0 | 0 |
+|    | 5       | 0 | 0 |
+|    | total       | 0 | 0 |
 
 
 ## Reproduce results
