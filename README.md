@@ -1,6 +1,6 @@
 # T4PC
 
-## :star: TCP property conformance improvement for stop signs <span style='color: red;'>NEW!</span>
+## TCP property conformance improvement for stop signs
 This video shows **TCP fine-tuned without property loss** running in one of the evaluation routes in CARLA, and we can see how it **runs a stop sign.**.
 
 ![alt text](video_not_stopping.gif)
@@ -32,7 +32,7 @@ This video shows **TCP fine-tuned with T4PC** running in the same evaluation rou
 | Town 10 left out  | 75,546    | 127,588   | 55,513    | 23,771    | 224,367   | 210,240   |
 | **Average**       | 75,166    | 121,021   | 57,404    | 23,252    | 210,338   | 195,804   |
 
-### :star: Towns <span style='color: red;'>NEW!</span>
+### Towns
 
 | Town   | # Images |
 |--------|--------|
@@ -43,10 +43,10 @@ This video shows **TCP fine-tuned with T4PC** running in the same evaluation rou
 | town07 | 62,446 |
 | town10 | 85,826 |
 
-### :star: Sec IV number of violations <span style='color: red;'>NEW!</span>
+### Sec IV number of violations
 We present the number of violations for each property and split in the controlled experiment. The number of violations is divided into two categories: $\mathcal{B}$ and $\mathcal{M}$, which represent the number of violations for the base model and the model fine-tuned with T4PC, respectively. These violations appear on the towns left out during training. We added 3 csv files called rq1_violations_table.csv, rq2_violations_table.csv, and rq3_violations_table.csv containing the following tables in the root folder.
 
-#### :star: RQ1 <span style='color: red;'>NEW!</span>
+#### RQ1
 | Properties                        | Split   | $\mathcal{B}$ | $\mathcal{M}$ |
 |:----------------------------------|:-------:|--------------:|--------------:|
 | $\phi_1$ - StopToAvoidCollision   | 0       | 180 | 54 |
@@ -93,7 +93,7 @@ We present the number of violations for each property and split in the controlle
 |    | total       | 0 | 0 |
 
 
-#### :star: RQ2 <span style='color: red;'>NEW!</span>
+#### RQ2
 | Properties                        | Split   | $\mathcal{B}$ | $\mathcal{M}$ |
 |:----------------------------------|:-------:|--------------:|--------------:|
 | $\phi_1$ - StopToAvoidCollision   | 0       | 200 | 43 |
@@ -140,7 +140,7 @@ We present the number of violations for each property and split in the controlle
 |    | total       | 0 | 0 |
 
 
-### :star: RQ3 <span style='color: red;'>NEW!</span>
+### RQ3
 | Properties                        | Split   | $\mathcal{B}$ | $\mathcal{M}$ |
 |:----------------------------------|:-------:|--------------:|--------------:|
 | $\phi_1$ - StopToAvoidCollision   | 0       | 150 | 29 |
