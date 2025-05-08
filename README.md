@@ -68,6 +68,12 @@ conda env create -f environment.yml --prefix .t4pc
 conda activate .t4pc
 ```
 
+3. Clone carla-scene-graph repository and install the requirements
+```bash
+git clone git@github.com:less-lab-uva/carla_scene_graphs.git
+pip install networkx==2.6.3
+```
+
 ### Download the dataset
 Download the dataset by running:
 ```bash
@@ -78,20 +84,18 @@ python downloader.py --option dataset
 You need to define the variables in the .env sample file. The variables are: ROOT_DIR, DATASET_DIR, CARLA_DIR.
 
 ### Execution scripts
-The scripts are designed to run in a SLURM server. The scripts need to be executed sequentially, consequently, execute each of the commands after all the previous SLURM jobs are completed. To launch the experiments, execute the following command:
+The scripts are designed to run in a SLURM server. The following script will start launching SLURM jobs to train each model, so you may want to execute it in the backgroud. To launch the experiments, execute the following command:
 ```bash
-python controlled_experiment/slurm_scripts/rq1_runner.py
-python controlled_experiment/slurm_scripts/rq2_runner.py
-python controlled_experiment/slurm_scripts/rq3_runner.py
+python controlled_experiment/slurm_scripts/exp_runner.py # RQ1 and RQ2
+python controlled_experiment/slurm_scripts/exp_runner.py --finetune # RQ3
 ```
-Note that some of the SBATCH parameters inside `controlled_experiment/rq1/sbatch_rq1.sh`, `controlled_experiment/rq2/sbatch_rq2.sh`, and `controlled_experiment/rq3/sbatch_rq3.sh` may need to be adjusted to the specific server configuration.
+Note that some of the SBATCH parameters inside `controlled_experiment/sbatch_train.sh` may need to be adjusted to the specific server configuration.
 
-### Plot scripts
-To plot the results. Run the following script:
+After all the SLURM jobs are finished, you need to parse all the results by running the following command:
 ```bash
-python controlled_experiment/plot.py
+python controlled_experiment/common/create_result_data_csv.py # RQ1 and RQ2
+python controlled_experiment/common/create_result_data_csv.py --finetune # RQ3
 ```
-
 
 ## Run full case study: TCP
 
