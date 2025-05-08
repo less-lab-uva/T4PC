@@ -166,6 +166,13 @@ slurm_output
 models
 violations
 results_summary
+results_summary_interfuser
 .t4pc
 .myenv
 case_study/TCP/best_model.ckpt
+controlled_experiment/training_data.csv
+controlled_experiment/finetuned_data.csv
+controlled_experiment/validation_logs_1.json
+controlled_experiment/validation_logs_2.json
+controlled_experiment/validation_logs_3.json
+controlled_experiment/all_data.json

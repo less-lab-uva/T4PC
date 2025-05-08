@@ -30,17 +30,28 @@ python downloader.py --option controlled_experiment_results
 
 2. Run the following script to plot the results:
 ```bash
-python controlled_experiment/plot.py
+python controlled_experiment/plot_fig3.py
+python controlled_experiment/plot_fig4.py
+python controlled_experiment/plot_fig5.py
 ```
-Figure 3 in the paper will be generated at `./controlled_experiment/results.png`.
 
-### TCP Controlled Experiment
+### Case study
+
+#### TCP
 1. Download the results.json files by running:
 ```bash
 python downloader.py --option case_study_results
 ```
 
-2. To render the full table with the results, execute the cells in the Jupyter notebook `case_study/results_summary.ipynb`.
+2. To render the full table with the results, execute the cells in the Jupyter notebook `case_study/results_summary_TCP.ipynb`.
+
+#### Interfuser
+1. Download the results.json files by running:
+```bash
+python downloader.py --option case_study_results_interfuser
+```
+
+2. To render the full table with the results, execute the cells in the Jupyter notebook `case_study/results_summary_Interfuser.ipynb`.
 
 
 

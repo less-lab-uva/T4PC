@@ -30,22 +30,27 @@ def remove_file(file_path):
 def main():
     # Define argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("--option", type=str, choices=["controlled_experiment_results", "case_study_results", "dataset", "tcp_model"], default=None)
+    parser.add_argument("--option", type=str, choices=["controlled_experiment_results", "case_study_results", "case_study_results_interfuser", "dataset", "tcp_model"], default=None)
     args = parser.parse_args()
     
     if args.option == "controlled_experiment_results":
-        urls = ["https://zenodo.org/records/13312460/files/rq1_violations.7z?download=1",
-                "https://zenodo.org/records/13312460/files/rq2_violations.7z?download=1",
-                "https://zenodo.org/records/13312460/files/rq3_violations.7z?download=1"]
-        output_files = ["rq1_violations.7z", "rq2_violations.7z", "rq3_violations.7z"]
+        urls = ["https://zenodo.org/records/15365284/files/rq1_rq3_data.7z?download=1",
+                "https://zenodo.org/records/15365284/files/rq2_data.7z?download=1"]
+        output_files = ["rq1_rq3_data.7z", "rq2_data.7z"]
         for url, output_file in zip(urls, output_files):
             download_file(url, output_file)
-            extract_file(output_file)
+            extract_file(output_file, "./controlled_experiment/")
             remove_file(output_file)
 
     elif args.option == "case_study_results":
         url = "https://zenodo.org/records/13312460/files/results_summary.7z?download=1"
         output_file = "case_study_results.7z"
+        download_file(url, output_file)
+        extract_file(output_file, "./case_study/")
+        remove_file(output_file)
+    elif args.option == "case_study_results_interfuser":
+        url = "https://zenodo.org/records/15365284/files/results_summary_interfuser.7z?download=1"
+        output_file = "case_study_results_interfuser.7z"
         download_file(url, output_file)
         extract_file(output_file, "./case_study/")
         remove_file(output_file)
